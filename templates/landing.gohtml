@@ -18,6 +18,7 @@
         }
         .t-style{
             color : rgb(47, 47, 170)
+
         }
     </style>
 
@@ -26,30 +27,30 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark" >
 
     <div class="container-fluid">
-        <a class="navbar-brand" href="/make-res">Book Now</a>
+        <a class="navbar-brand" href="makeres.gohtml">Book Now</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    <a class="nav-link active" aria-current="page" href="landing.gohtml">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
+                    <a class="nav-link" href="about.gohtml">About</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Rooms
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/rooms/roof-garden">Roof Garden</a></li>
-                        <li><a class="dropdown-item" href="/rooms/luxury-room">Luxury Room</a></li>
+                        <li><a class="dropdown-item" href="roof.gohtml">Roof Garden</a></li>
+                        <li><a class="dropdown-item" href="luxury.gohtml">Luxury Room</a></li>
 
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/contact" aria-disabled="true">Contact</a>
+                    <a class="nav-link " href="contact.gohtml" aria-disabled="true">Contact</a>
                 </li>
             </ul>
 
@@ -57,16 +58,16 @@
     </div>
 </nav>
 <div>
-    <div id="carouselExampleCaptions" class="carousel slide">
+    <div id="main-carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#main-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#main-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#main-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
 
 
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item active" data-bs-interval="10000">
                 <img src="../static/drinkcoffe.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
@@ -74,7 +75,7 @@
                 </div>
 
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" data-bs-interval="10000">
                 <img src="../static/tray.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
@@ -82,7 +83,7 @@
                 </div>
 
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" data-bs-interval="10000" >
                 <img src="../static/house2.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
@@ -91,17 +92,10 @@
 
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+
     </div>
 </div>
- 
+
 <div class="container" >
     <div class="row">
         <div class="col">
@@ -123,13 +117,14 @@
                 random text show random text show random text show random text show
                 random text show random text show random text show random text show
                 random text show random text show random text show random text show
+
             </p>
 
         </div>
     </div>
     <div class="row">
         <div class="col text-center ">
-            <a href="/make-res" class="btn btn-success">Make Reserve Now</a>
+            <a href="makeres.gohtml" class="btn btn-success">Make Reserve Now</a>
         </div>
 
     </div>
@@ -137,16 +132,17 @@
 </div>
 <div class="row my-footer" >
     <div class="col text-center ">
-     left
+        left
     </div>
 
     <div class="col text-center ">
-     mid
+        mid
     </div>
 
     <div class="col text-center ">
-     right
+        right
     </div>
+
 
 
 </div>
