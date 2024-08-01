@@ -120,7 +120,7 @@
 
 <script>
  document.getElementById("myButton").addEventListener("click", function() {
-     nofify("I am clicked", "success")
+     notifyModal("I am clicked", "success")
  })
  document.getElementById("myButton2").addEventListener("click", function() {
     Swal.fire({
@@ -151,7 +151,7 @@
         });
     })();
 
-    function nofify(msg , msgtype) {
+    function notifyModal(msg , msgtype) {
         notie.alert({
   type: msgtype,
   text: msg,
