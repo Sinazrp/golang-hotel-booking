@@ -2,4 +2,39 @@
 
 {{define "content"}}
 
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center mt-4 t-style" >Book Reserve</h1>
+                <form method="post" action="" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="first_name" class="form-label">First Name</label>
+                        <input required type="text" class="form-control" id="first_name" name="first_name"  >
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="last_name" class="form-label">Last Name</label>
+                        <input required type="text" class="form-control" id="last_name" name="last_name"  >
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input required type="email" class="form-control" id="email" name="email"  >
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input required type="number" class="form-control" id="phone" name="phone"  >
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Reserve</button>
+
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
 {{end}}

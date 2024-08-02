@@ -12,7 +12,7 @@
      <body>
      <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
          <div class="container-fluid">
-             <a class="navbar-brand" href="/makeres">Book Now</a>
+             <a class="navbar-brand" href="/search">Book Now</a>
              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                  <span class="navbar-toggler-icon"></span>
              </button>
@@ -65,33 +65,14 @@
      <script src="https://unpkg.com/notie"></script>
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+     {{block "js" .}}
+
+     {{end}}
+
      <script>
          let promptHanler = Prompt();
-         document.getElementById("myButton").addEventListener("click", function() {
-             let html = `
-        <form id="check-availability-form" action="" method="post" novalidate class="needs-validation">
-            <div class="row">
-                <div class="col">
-                    <div class="row" id="reservation-dates-modal">
-                        <div class="col">
-                            <input disabled required class="form-control" type="text" name="start" id="start" placeholder="Arrival">
-                        </div>
-                        <div class="col">
-                            <input disabled required class="form-control" type="text" name="end" id="end" placeholder="Departure">
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-        </form>
-        `;
-             promptHanler.custom({msg: html});
-         });
-         document.getElementById("myButton2").addEventListener("click", function(){
-                 promptHanler.success({msg: "dont be stupid" , title : "tip of the day", footer : " go do something"})
-             }
 
-         );
 
          (function(){
              'use strict';
@@ -187,8 +168,6 @@
                  const {value : formValue} = await Swal.fire({
                      title: title,
                      html: msg,
-                     focusConfirm: false,
-                     backdrop:false,
                      showCancelButton : true,
                      preConfirm: () => {
                          return [

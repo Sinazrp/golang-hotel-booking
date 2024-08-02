@@ -1,5 +1,39 @@
 {{template "base" .}}
 
 {{define "content"}}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center mt-4 t-style">Search for Free Rooms</h1>
+                <form action="/makeres" method="GET" novalidate class="needs-validation">
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="start_date" class="form-label">Starting Date</label>
+                                <input required type="date" class="form-control" id="start_date" name="start_date" aria-describedby="startDateHelp">
+                                <div id="startDateHelp" class="form-text">when u wanna travel</div>
+                                <div class="invalid-feedback">
+                                    Please choose date.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="ending_date" class="form-label">End Date</label>
+                                <input required type="date" class="form-control" id="ending_date" name="ending_date" aria-describedby="endDateHelp">
+                                <div id="endDateHelp" class="form-text">when u wanna get back</div>
+                                <div class="invalid-feedback">
+                                    Please choose a date.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-3">Search</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
 
 {{end}}
