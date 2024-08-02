@@ -38,3 +38,20 @@ func (m *Repository) About(res http.ResponseWriter, req *http.Request) {
 
 }
 func HandlerICon(w http.ResponseWriter, r *http.Request) {}
+
+func (m *Repository) Reservation(res http.ResponseWriter, req *http.Request) {
+	render.RenderTemplate(res, "makeres.page.gohtml", &models.TemplateData{})
+}
+
+func (m *Repository) Luxury(res http.ResponseWriter, req *http.Request) {
+	render.RenderTemplate(res, "luxury.page.gohtml", &models.TemplateData{})
+}
+func (m *Repository) Roof(res http.ResponseWriter, req *http.Request) {
+	render.RenderTemplate(res, "roof.page.gohtml", &models.TemplateData{})
+}
+func (m *Repository) Search(res http.ResponseWriter, req *http.Request) {
+	render.RenderTemplate(res, "search.page.gohtml", &models.TemplateData{})
+}
+func (m *Repository) Contact(res http.ResponseWriter, req *http.Request) {
+	render.RenderTemplate(res, "contact.page.gohtml", &models.TemplateData{})
+}
