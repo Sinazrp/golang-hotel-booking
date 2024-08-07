@@ -3,6 +3,7 @@ package render
 import (
 	"bytes"
 	"fmt"
+	"github.com/justinas/nosurf"
 	"golang-hotel-booking/pkg/config"
 	"golang-hotel-booking/pkg/models"
 	"html/template"
@@ -16,10 +17,11 @@ var app *config.AppConfig
 func NewTemplates(a *config.AppConfig) {
 	app = a
 }
-func AddDefaultData(td *models.TemplateData) *models.TemplateData {
+func AddDefaultData(td *models.TemplateData, r *http.Request) *models.TemplateData {
+	td.CSRFToken = nosurf.Token(r)
 	return td
 }
-func RenderTemplate(res http.ResponseWriter, tmpl string, data *models.TemplateData) {
+func RenderTemplate(res http.ResponseWriter, tmpl string, data *models.TemplateData, r *http.Request) {
 	tc := map[string]*template.Template{}
 	if app.UseCache {
 		tc = app.TemplateCache
@@ -37,7 +39,7 @@ func RenderTemplate(res http.ResponseWriter, tmpl string, data *models.TemplateD
 		log.Fatal("template not found: ", tmpl)
 	}
 	buf := new(bytes.Buffer)
-	td := AddDefaultData(data)
+	td := AddDefaultData(data, r)
 	_ = t.Execute(buf, td)
 
 	//render the template
