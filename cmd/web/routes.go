@@ -24,6 +24,8 @@ func routes(app *config.AppConfig) http.Handler {
 	mux.Get("/search", handlers.Repo.Search)
 	mux.Get("/contact", handlers.Repo.Contact)
 	mux.Get("/makeres", handlers.Repo.Reservation)
+	mux.Post("/search", handlers.Repo.PostSearch)
+	mux.Get("/search-json", handlers.Repo.SearchJson)
 	fileServer := http.FileServer(http.Dir("./static/"))
 	mux.Handle("/static/*", http.StripPrefix("/static/", fileServer))
 	return mux
