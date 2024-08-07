@@ -5,7 +5,8 @@
         <div class="row">
             <div class="col">
                 <h1 class="text-center mt-4 t-style">Search for Free Rooms</h1>
-                <form action="/makeres" method="GET" novalidate class="needs-validation">
+                <form action="/search" method="post" novalidate class="needs-validation">
+                    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}"  >
                     <div class="row">
                         <div class="col">
                             <div class="mb-3">
@@ -21,7 +22,7 @@
                             <div class="mb-3">
                                 <label for="ending_date" class="form-label">End Date</label>
                                 <input required type="date" class="form-control" id="ending_date" name="ending_date" aria-describedby="endDateHelp">
-                                <div id="endDateHelp" class="form-text">when u wanna get back</div>
+                                <div id="endDateHelp" class="form-text">when you want to get back</div>
                                 <div class="invalid-feedback">
                                     Please choose a date.
                                 </div>
