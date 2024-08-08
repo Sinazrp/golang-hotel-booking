@@ -3,9 +3,9 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
-	"golang-hotel-booking/pkg/config"
-	"golang-hotel-booking/pkg/models"
-	"golang-hotel-booking/pkg/render"
+	"golang-hotel-booking/internal/config"
+	"golang-hotel-booking/internal/models"
+	"golang-hotel-booking/internal/render"
 	"log"
 	"net/http"
 )
@@ -75,11 +75,13 @@ func (m *Repository) SearchJson(res http.ResponseWriter, req *http.Request) {
 		Ok:      false,
 		Message: "available!",
 	}
+	start := req.Form.Get("start")
 	out, err := json.Marshal(resp)
 	if err != nil {
 		log.Println(err)
 	}
 	log.Println(string(out))
+	log.Println(string(start))
 	res.Header().Set("Content-Type", "application/json")
 	_, err = res.Write(out)
 	if err != nil {
