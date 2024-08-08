@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"golang-hotel-booking/internal/config"
+	"golang-hotel-booking/internal/forms"
 	"golang-hotel-booking/internal/models"
 	"golang-hotel-booking/internal/render"
 	"log"
@@ -43,6 +44,13 @@ func (m *Repository) About(res http.ResponseWriter, req *http.Request) {
 func HandlerICon(w http.ResponseWriter, r *http.Request) {}
 
 func (m *Repository) Reservation(res http.ResponseWriter, req *http.Request) {
+	render.RenderTemplate(res, "makeres.page.gohtml", &models.TemplateData{
+		Form: forms.New(nil),
+	}, req)
+}
+
+// posting reservation Form
+func (m *Repository) PostReservation(res http.ResponseWriter, req *http.Request) {
 	render.RenderTemplate(res, "makeres.page.gohtml", &models.TemplateData{}, req)
 }
 
