@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/alexedwards/scs/v2"
 	"golang-hotel-booking/internal/config"
 	"golang-hotel-booking/internal/handlers"
 	"golang-hotel-booking/internal/render"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/alexedwards/scs/v2"
 )
 
 const portNumber = ":8080"
