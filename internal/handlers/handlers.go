@@ -86,6 +86,24 @@ func (m *Repository) PostReservation(res http.ResponseWriter, req *http.Request)
 		}, req)
 		return
 	}
+
+	m.App.Sessions.Put(req.Context(), "reservation", reservation)
+	http.Redirect(res, req, "/reservation-summary", http.StatusSeeOther)
+}
+func (m *Repository) ReservationSummary(res http.ResponseWriter, req *http.Request) {
+	reservation, ok := m.App.Sessions.Get(req.Context(), "reservation").(models.Reservation)
+	if !ok {
+		log.Println("cannot get item from session")
+		m.App.Sessions.Put(req.Context(), "error", "can't get reservation from session")
+		http.Redirect(res, req, "/home", http.StatusSeeOther)
+		return
+	}
+	data := make(map[string]interface{})
+	data["reservation"] = reservation
+	render.RenderTemplate(res, "reservation-summary.page.gohtml", &models.TemplateData{
+		Data: data,
+	}, req)
+	
 }
 
 func (m *Repository) Luxury(res http.ResponseWriter, req *http.Request) {
