@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"github.com/alexedwards/scs/v2"
-	"golang-hotel-booking/pkg/config"
-	"golang-hotel-booking/pkg/handlers"
-	"golang-hotel-booking/pkg/render"
+	"golang-hotel-booking/internal/config"
+	"golang-hotel-booking/internal/handlers"
+	"golang-hotel-booking/internal/render"
 	"log"
 	"net/http"
 	"time"
