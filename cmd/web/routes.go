@@ -3,8 +3,8 @@ package main
 import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
-	"golang-hotel-booking/pkg/config"
-	"golang-hotel-booking/pkg/handlers"
+	"golang-hotel-booking/internal/config"
+	"golang-hotel-booking/internal/handlers"
 	"net/http"
 )
 
@@ -25,7 +25,7 @@ func routes(app *config.AppConfig) http.Handler {
 	mux.Get("/contact", handlers.Repo.Contact)
 	mux.Get("/makeres", handlers.Repo.Reservation)
 	mux.Post("/search", handlers.Repo.PostSearch)
-	mux.Get("/search-json", handlers.Repo.SearchJson)
+	mux.Post("/search-json", handlers.Repo.SearchJson)
 	fileServer := http.FileServer(http.Dir("./static/"))
 	mux.Handle("/static/*", http.StripPrefix("/static/", fileServer))
 	return mux
