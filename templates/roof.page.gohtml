@@ -64,7 +64,23 @@
             </div>
         </form>
         `;
-            promptHanler.custom({msg: html});
+            promptHanler.custom({msg: html,
+                title: "choose date",
+                callback :function (result){
+                console.log("called");
+                    let  form =document.getElementById("check-availability-form");
+                    let  formData = new FormData(form);
+                    formData.append("csrf_token","{{.CSRFToken}}")
+                    fetch("/search-json",{
+                        method :"post",
+                        body :formData
+                    }).then(response=>response.json()).then(
+                        data => {
+                            console.log(data)
+                        }
+                    )
+
+                }});
         });
     </script>
 
