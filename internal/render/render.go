@@ -31,7 +31,7 @@ func RenderTemplate(res http.ResponseWriter, tmpl string, data *models.TemplateD
 	}
 
 	// create template
-	tc = app.TemplateCache
+	//tc = app.TemplateCache
 
 	//get requested template from cache
 	t, ok := tc[tmpl]

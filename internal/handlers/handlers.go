@@ -44,14 +44,48 @@ func (m *Repository) About(res http.ResponseWriter, req *http.Request) {
 func HandlerICon(w http.ResponseWriter, r *http.Request) {}
 
 func (m *Repository) Reservation(res http.ResponseWriter, req *http.Request) {
+	var emptyReservation models.Reservation
+	data := make(map[string]interface{})
+	data["reservation"] = emptyReservation
 	render.RenderTemplate(res, "makeres.page.gohtml", &models.TemplateData{
 		Form: forms.New(nil),
+		Data: data,
 	}, req)
 }
 
 // posting reservation Form
 func (m *Repository) PostReservation(res http.ResponseWriter, req *http.Request) {
-	render.RenderTemplate(res, "makeres.page.gohtml", &models.TemplateData{}, req)
+
+	err := req.ParseForm()
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	reservation := models.Reservation{
+		FirstName: req.Form.Get("first_name"),
+		LastName:  req.Form.Get("last_name"),
+		Email:     req.Form.Get("email"),
+		Phone:     req.Form.Get("phone"),
+	}
+	form := forms.New(req.PostForm)
+	//form.Has("first_name", req)
+	//form.Has("last_name", req)
+	//form.Has("email", req)
+	//form.Has("phone", req)
+	form.Required("first_name", "last_name", "email", "phone")
+	form.MinLength("first_name", 3)
+	form.MaxLength("phone", 12)
+	form.IsEmail("email")
+	if !form.Valid() {
+		data := make(map[string]interface{})
+		data["reservation"] = reservation
+		render.RenderTemplate(res, "makeres.page.gohtml", &models.TemplateData{
+			Form: form,
+			Data: data,
+		}, req)
+		return
+	}
 }
 
 func (m *Repository) Luxury(res http.ResponseWriter, req *http.Request) {
