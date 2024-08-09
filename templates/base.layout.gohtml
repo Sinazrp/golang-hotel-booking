@@ -74,6 +74,8 @@
 
 
 
+
+
          (function(){
              'use strict';
              window.addEventListener('load', function() {
@@ -94,12 +96,29 @@
              });
          })();
 
+
+
          function notifyModal(msg , msgtype) {
              notie.alert({
                  type: msgtype,
                  text: msg,
              })
          }
+         {{with .Error}}
+           notifyModal("{{.}}","error")
+                 {{end}}
+
+         {{with .Flash}}
+         notifyModal("{{.}}","success")
+         {{end}}
+
+         {{with .Warning}}
+         notifyModal("{{.}}","warning")
+         {{end}}
+
+
+
+
          function Prompt(){
              let toast  = function (c) {
                  const {msg = "",
@@ -155,7 +174,7 @@
                      text: msg,
                      footer : footer,
                      icon: 'error',
-                     confirmButtonText: 'Cool'
+                     confirmButtonText: 'OK'
                  })
 
              }
@@ -198,6 +217,8 @@
                  toast: toast,
                  success: success,
                  custom : custom,
+                 error: error,
+
 
              }
          }
