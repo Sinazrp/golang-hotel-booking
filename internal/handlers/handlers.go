@@ -95,15 +95,16 @@ func (m *Repository) ReservationSummary(res http.ResponseWriter, req *http.Reque
 	if !ok {
 		log.Println("cannot get item from session")
 		m.App.Sessions.Put(req.Context(), "error", "can't get reservation from session")
-		http.Redirect(res, req, "/home", http.StatusSeeOther)
+		http.Redirect(res, req, "/home", http.StatusTemporaryRedirect)
 		return
 	}
+	m.App.Sessions.Remove(req.Context(), "reservation")
 	data := make(map[string]interface{})
 	data["reservation"] = reservation
 	render.RenderTemplate(res, "reservation-summary.page.gohtml", &models.TemplateData{
 		Data: data,
 	}, req)
-	
+
 }
 
 func (m *Repository) Luxury(res http.ResponseWriter, req *http.Request) {
